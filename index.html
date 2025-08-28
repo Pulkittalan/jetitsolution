@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jet IT Solution | Innovative Technology Services</title>
+    <script src="tailwind"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="icon" type="image/png" href="cropped_circle_image.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="testnew.css">
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #3730a3;
+            --accent: #6366f1;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --tech-gradient-1: #4338ca;
+            --tech-gradient-2: #3b82f6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--tech-gradient-1) 0%, var(--tech-gradient-2) 100%);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-preview {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(59, 130, 246, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-icon:hover {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .chart-container {
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .indicator-pill {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .indicator-pill:hover {
+            transform: translateY(-2px);
+        }
+        
+        .strategy-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .time-filter {
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .time-filter.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                text-align: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <!-- Navigation -->
+     <nav class="bg-white shadow-md sticky top-0 z-50 transition-all duration-300 ease-in-out">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-28 items-center"> <!-- Adjusted to fit logo -->
+
+      <!-- Logo and Brand -->
+      <div class="flex items-center space-x-4 animate-fade-in-down">
+        <div class="w-36 h-36 transition-transform duration-500 hover:scale-105">
+          <img src="/cropped_circle_image.png" alt="Algo IT Logo" class="w-full h-full object-contain" />
+        </div>
+        <span class="text-2xl font-extrabold text-gray-900 transition duration-300 hover:text-indigo-600">Jet IT Solution</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="hidden sm:flex sm:space-x-5 animate-fade-in">
+        
+        <a href="#"
+          class="text-lg font-medium text-gray-900 relative group transition-all duration-300">
+          Home
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        
+        <!-- Services Dropdown -->
+        <div class="relative group">
+        <a href="/services.html"
+            class="text-lg font-medium text-gray-500 hover:text-indigo-600 relative group transition-all duration-300">
+            Services
+            <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        
+
+        <!-- Dropdown -->
+        <div
+            class="absolute left-0 top-full mt-3 w-[500px] bg-white shadow-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform scale-95 group-hover:scale-100 z-50 p-6">
+            
+            <div class="grid grid-cols-2 gap-4">
+            
+            <!-- Left Column -->
+            <div class="space-y-3">
+                <p class="text-sm text-gray-900 font-semibold">◇ IT Services</p>
+                <a href="#web" class="block text-gray-800 hover:text-indigo-600 relative group transition-all duration-300">
+                ➡ Web Development
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#mobile" class="block text-gray-800 hover:text-indigo-600 relative group transition-all duration-300">
+                ➡ Mobile App Development
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#design" class="block text-gray-800 hover:text-indigo-600 relative group transition-all duration-300">
+                ➡ Design
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#software" class="block text-gray-800 hover:text-indigo-600 relative group transition-all duration-300">
+                ➡ Software Development
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#marketing" class="block text-gray-800 hover:text-indigo-600 relative group transition-all duration-300">
+                ➡ Digital Marketing
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                
+            </div>
+            
+            <!-- Right Column -->
+            <div class="space-y-3">
+                <p class="text-sm text-gray-900 font-semibold">◇ Algo Services</p>
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#api" class="block text-gray-800 hover:text-indigo-600 relative group transition-all duration-300">
+                ➡ Api Bridge
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#signals" class="block text-gray-800 hover:text-indigo-600 relative group transition-all duration-300">
+                ➡ Signals
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#strategy" class="block text-gray-800 hover:text-indigo-600 relative group transition-all duration-300">
+                ➡ Strategy Development
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#algosoft" class="block text-gray-800 hover:text-indigo-600 relative group transition-all duration-300">
+                ➡ Algo Software
+                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                
+            </div>
+
+            </div>
+        </div>
+        </div>
+
+        
+        <a href="#mainCoantiner"
+          class="text-lg font-medium text-gray-500 hover:text-indigo-600 relative group transition-all duration-300">
+          Pricing
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <div class="relative group">
+        <a href="#policy"
+            class="text-lg font-medium text-gray-500 hover:text-indigo-600 relative group transition-all duration-300">
+            Policy
+            <span
+            class="absolute left-0 bottom-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <!-- Dropdown Menu -->
+        <div
+            class="absolute top-full  mt-3 bg-white shadow-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-2 transition-all duration-500 ease-out transform origin-top scale-95 group-hover:scale-100 z-50">
+            
+            <!-- Menu Items with animated line on hover -->
+            <a href="disclamer.html"
+            class="block px-5 py-3 text-gray-800 hover:text-indigo-600 transition-all duration-300 relative group" >
+            <span class="relative z-10">Disclaimer</span>
+            <span class="absolute left-1/2 -translate-x-1/2 w-0 group-hover:w-full bottom-0 h-0.5 bg-indigo-500 w-0 group-hover:w-full transition-all duration-500 ease-in-out"></span>
+            </a>
+
+            <a href="privacy.html"
+            class="block px-5 py-3 text-gray-800 hover:text-indigo-600 transition-all duration-300 relative group">
+            <span class="relative z-10">Privacy Policy</span>
+            <span class="absolute left-1/2 -translate-x-1/2 w-0 group-hover:w-full bottom-0 h-0.5 bg-indigo-500 w-0 group-hover:w-full transition-all duration-500 ease-in-out"></span>
+            </a>
+
+            <a href="terms.html"
+            class="block px-5 py-3 text-gray-800 hover:text-indigo-600 transition-all duration-300 relative group">
+            <span class="relative z-10">Terms & Conditions</span>
+            <span class="absolute left-1/2 -translate-x-1/2 w-0 group-hover:w-full bottom-0 h-0.5 bg-indigo-500 w-0 group-hover:w-full transition-all duration-500 ease-in-out"></span>
+            </a>
+
+            <a href="#norefund"
+            class="block px-5 py-3 text-gray-800 hover:text-indigo-600 transition-all duration-300 relative group">
+            <span class="relative z-10">No Refund Policy</span>
+            <span class="absolute left-1/2 -translate-x-1/2 w-0 group-hover:w-full bottom-0 h-0.5 bg-indigo-500 w-0 group-hover:w-full transition-all duration-500 ease-in-out"></span>
+            </a>
+        </div>
+        </div>
+        <div class="relative group inline-block">
+            <a href="support.html" class="text-lg font-medium text-gray-500 hover:text-indigo-600 relative transition-all duration-300">
+                Support
+                <span
+                    class="absolute left-0 bottom-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        
+            <!-- Dropdown -->
+            <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 w-50 p-3 z-10">
+                <p class="text-sm text-gray-700">📧 support@jetitsolutions.com</p>
+            </div>
+        </div>
+
+        <a href="#clients"
+          class="text-lg font-medium text-gray-500 hover:text-indigo-600 relative group transition-all duration-300">
+          Clients
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </div>
+
+      <!-- Buttons -->
+      <div class="hidden sm:flex sm:items-center space-x-4 animate-fade-in-up">
+        <button></button>
+          <a href="#contact"
+            class=" ml-4 px-4 py-2 text-sm font-semibold rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 transition-transform transform hover:scale-105 duration-300">
+            Contact Us
+          </a>
+        </button>
+        <button>
+          <a href="login.html" class="btn btn-3d">LOGIN </a>
+        </button>
+      </div>
+    <style>
+    .mobile-menu-enter {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .mobile-menu-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .mobile-menu-exit {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu-exit-active {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+  </style>
+  <div class="sm:hidden">
+        <button id="menu-toggle" class="focus:outline-none">
+          <svg id="menu-icon" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden bg-blue-400 px-4 pt-4 pb-6 sm:hidden">
+      <a href="#" class="block py-2 text-white hover:text-gray-200">Home</a>
+      <a href="services.html" class="block py-2 text-white hover:text-gray-200">Services</a>
+      <a href="pricing.html" class="block py-2 text-white hover:text-gray-200">Pricing</a>
+      <a href="" class="block py-2 text-white hover:text-gray-200">Policy</a>
+      <a href="#testimonials" class="block py-2 text-white hover:text-gray-200">Clients</a>
+    </div>
+  </nav>
+  <!-- Mobile-only LOGIN button -->
+  <a href="login.html" 
+     class="block sm:hidden mt-4 px-4 py-2 text-center font-semibold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+    LOGIN
+  </a>
+</div>
+
+  <script>
+    const toggleBtn = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+
+    toggleBtn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      menu.classList.toggle("visible");
+
+      // Toggle icon (hamburger ↔ X)
+      if (menuIcon.innerHTML.includes("M4 6h16")) {
+        menuIcon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M6 18L18 6M6 6l12 12" />
+        `;
+      } else {
+        menuIcon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+        `;
+      }
+    });
+  </script>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="hero-content mx-auto flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 animate-fadeInUp">Innovative IT Solutions for Modern Businesses</h1>
+                    <p class="text-xl text-indigo-100 mb-8">We deliver cutting-edge technology services and custom software solutions that drive digital transformation and business growth.</p>
+                    <div class="cta-buttons flex flex-wrap gap-4">
+                        <button class="px-8 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">Explore Solutions</button>
+                        <button class="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">Contact Us</button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="dashboard-preview w-full md:w-4/5 bg-white p-4 rounded-xl shadow-2xl">
+                        <img src="trad chart.png" alt="Dashboard Preview" class="w-full h-auto object-contain rounded-lg">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-bold text-indigo-600">200+</div>
+                    <div class="text-gray-600">Projects Delivered</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-indigo-600">15+</div>
+                    <div class="text-gray-600">Years Experience</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-indigo-600">50+</div>
+                    <div class="text-gray-600">Tech Experts</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-indigo-600">98%</div>
+                    <div class="text-gray-600">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Hero Section -->
+    <section class="xl:pt-[8.5vh] pt-[80px] bg-[#181123] !overflow-hidden">
+        <section class="bg-[#181123] px-[10%] pt-10 pb-28 flex flex-col justify-between items-center">
+            <div class="flex flex-row justify-between items-center flex-wrap">
+                <div class="md:w-[40%] w-full" data-aos="fade-right" data-aos-duration="1000">
+                    <p class="tracking-widest p1 text-xs text-[#1dc2ef]">OUR COMPANY</p>
+                    <h2 class="text-white text-2xl font-bold h1">Jet IT Solutions provides best solution Softwares for you.
+                    </h2>
+                    <div class="w-full mt-10" data-aos="fade-up">
+                        <img src="our company.png" alt="Jet IT Team" class="w-full h-auto rounded-xl shadow-lg" />
+                    </div>
+
+                </div>
+                <div class="md:w-[40%] w-full text-[#9b9aad] text-lg md:text-xl p2" data-aos="fade-left" data-aos-duration="1000">
+                    Jet IT Solutions delivers innovative software,
+                    AI-driven analytics, advanced algo trading systems, and creative digital solutions tailored to empower
+                    businesses and investors.
+                </div>
+            </div>
+            <div
+                class="w-full h-20 lg:pt-10 pt-10 lg:space-y-0 space-y-20 flex service-card-container flex-row justify-between items-center flex-wrap">
+                <div class="lg:w-[30%] w-full h-52 relative group service-card" data-aos="zoom-in-up" data-aos-duration="800"><img class="w-full object-cover h-full"
+                        src="/services.jpg" alt="" />
+                    <div
+                        class="bg-white w-[80%] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg absolute shadow-md shadow-slate-700/20 -bottom-7 -translate-x-1/2 left-1/2 z-20 flex py-3 flex-col items-center justify-evenly">
+                        <div class="h-16 w-[80%] overflow-hidden relative">
+                            <p
+                                class="text-[#3ea9f5] w-full text-center absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-[30%] font-semibold  transition-all duration-300 group-hover:top-[-15%]">
+                                Our services</p>
+                            <p
+                                class="text-black w-full text-center absolute font-semibold transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-[70%] transition-all duration-300 group-hover:top-[30%]">
+                                How we can help</p><a href="/it-services"
+                                class="text-[#3ea9f5] cursor-pointer w-full hover:w-[80%] hover:bg-pink-600 hover:text-white text-center absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2  top-[110%] font-semibold transition-all duration-300 group-hover:top-[70%]">Read
+                                More <!-- --> ↗</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-[30%] w-full h-52 relative group service-card" data-aos="zoom-in-up" data-aos-duration="800"><img class="w-full object-cover h-full"
+                        src="algo services.jpg" alt="" />
+                    <div
+                        class="bg-white w-[80%] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg absolute shadow-md shadow-slate-700/20 -bottom-7 -translate-x-1/2 left-1/2 z-20 flex py-3 flex-col items-center justify-evenly">
+                        <div class="h-16 w-[80%] overflow-hidden relative">
+                            <p
+                                class="text-[#3ea9f5] w-full text-center absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-[30%] font-semibold  transition-all duration-300 group-hover:top-[-15%]">
+                                Algo Services</p>
+                            <p
+                                class="text-black w-full text-center absolute font-semibold transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-[70%] transition-all duration-300 group-hover:top-[30%]">
+                                Why use our software</p><a href="/algo-services"
+                                class="text-[#3ea9f5] cursor-pointer w-full hover:w-[80%] hover:bg-pink-600 hover:text-white text-center absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2  top-[110%] font-semibold transition-all duration-300 group-hover:top-[70%]">Read
+                                More <!-- --> ↗</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-[30%] w-full h-52 relative group service-card" data-aos="zoom-in-up" data-aos-duration="800"><img class="w-full object-cover h-full"
+                        src="policy.webp" alt="" />
+                    <div
+                        class="bg-white w-[80%] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg absolute shadow-md shadow-slate-700/20 -bottom-7 -translate-x-1/2 left-1/2 z-20 flex py-3 flex-col items-center justify-evenly">
+                        <div class="h-16 w-[80%] overflow-hidden relative">
+                            <p
+                                class="text-[#3ea9f5] w-full text-center absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-[30%] font-semibold  transition-all duration-300 group-hover:top-[-15%]">
+                                Our policy</p>
+                            <p
+                                class="text-black w-full text-center absolute font-semibold transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-[70%] transition-all duration-300 group-hover:top-[30%]">
+                                Look at our policies</p><a href="/privacy"
+                                class="text-[#3ea9f5] cursor-pointer w-full hover:w-[80%] hover:bg-pink-600 hover:text-white text-center absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2  top-[110%] font-semibold transition-all duration-300 group-hover:top-[70%]">Read
+                                More <!-- --> ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-[#eceff3] w-full lg:h-52 h-[800px] flex items-center justify-center">
+            <p class="text-[#627792] text-center lg:mt-20 mt-[660px] p3">Stop wasting time and money on manual
+                trading<!-- --> <span class="text-black underline"><a href="/algo-services/" target="_blank"
+                        title="Brain Auto Tech Docs">Explore our automated services.</a></span></p>
+        </section>
+    </section>
+
+    <!-- Services Section -->
+    <div id="services" class="bg-gray-50 py-16">
+        <div class="w-full mt-10   flex justify-center" data-aos="fade-up">
+                        <img src="servicethumb.jpg" alt="Jet IT Team" class="max-w-5xl w-full max-h-50 rounded-xl shadow-lg" />
+                    </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Comprehensive IT Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We offer a wide range of technology services designed to help your business innovate, optimize, and grow in the digital landscape.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">IT Services</h3>
+                    <p class="text-gray-600 mb-4">Tailored software solutions designed to address your specific business challenges and requirements.</p>
+                    <ul class="text-gray-600 space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Web Applications
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Mobile Applications
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Software Development
+                        </li>
+                    </ul>
+                    <div class="my-7 w-full flex flex-col space-y-3 items-center group"><img alt=""
+                            class="h-24  transition-transform duration-500 ease-in-out group-hover:scale-75 group-hover:-translate-y-2 group-hover:rotate-[25deg] "
+                            src="computer-programmer-software-engineer-coder-software-developer.svg" />
+                        <div
+                            class="bg-slate-300 w-5 h-5 transition-transform ease-in-out duration-500 group-hover:scale-x-[5.0] group-hover:scale-y-75 rounded-full transform scale-x-[6.0]">
+                        </div>
+                    </div>
+                    <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800">Learn more →</a>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Data Analytics & AI</h3>
+                    <p class="text-gray-600 mb-4">Transform your data into actionable insights with our advanced analytics and artificial intelligence solutions.</p>
+                    <ul class="text-gray-600 space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Business Intelligence
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Machine Learning
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Predictive Analytics
+                        </li>
+                    </ul>
+                    <div class="my-7 w-full flex flex-col space-y-3 items-center group"><img alt=""
+                            class="h-24  transition-transform duration-500 ease-in-out group-hover:scale-75 group-hover:-translate-y-2 group-hover:rotate-[25deg] "
+                            src="https://live.21lab.co/nanosoft/wp-content/uploads/2018/08/ssd-storage-1951_0cd86b60-9df8-4053-9198-84f76027d5de.svg" />
+                        <div
+                            class="bg-slate-300 w-5 h-5 transition-transform ease-in-out duration-500 group-hover:scale-x-[5.0] group-hover:scale-y-75 rounded-full transform scale-x-[6.0]">
+                        </div>
+                    </div>
+                    <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800">Learn more →</a>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Algo Services</h3>
+                    <p class="text-gray-600 mb-4">Automated trading systems and tools crafted to optimize investment strategies and trading efficiency.</p>
+                    <ul class="text-gray-600 space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Algo Software
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            API Bridge
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Strategy Development    
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Signals
+                        </li>
+                    </ul>
+                    <div class="my-7 w-full flex flex-col space-y-3 items-center group"><img alt=""
+                            class="h-24  transition-transform duration-500 ease-in-out group-hover:scale-75 group-hover:-translate-y-2 group-hover:rotate-[25deg] "
+                            src="https://live.21lab.co/nanosoft/wp-content/uploads/2018/08/syncing-document-4157_bf6a2cf1-26c8-4688-ab14-85836d2a0562.svg" />
+                        <div
+                            class="bg-slate-300 w-5 h-5 transition-transform ease-in-out duration-500 group-hover:scale-x-[5.0] group-hover:scale-y-75 rounded-full transform scale-x-[6.0]">
+                        </div>
+                    </div>
+                    <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800">Learn more →</a>
+                </div>
+            </div>
+            <!-- Bottom Centered Card -->
+    <div class="flex justify-center mt-10">
+        <div
+            class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 max-w-md">
+            <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-5">
+                <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 10h2l1 2h10l1-2h2M5 13h14v7H5z"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Digital Solutions & Marketing</h3>
+            <p class="text-gray-600 mb-4">Creative digital services focused on enhancing your brand visibility, engagement,
+                and growth.</p>
+            <ul class="text-gray-600 space-y-2 mb-4">
+                <li class="flex items-center">
+                    <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    Digital Marketing
+                </li>
+                <li class="flex items-center">
+                    <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    Design
+                </li>
+                <li class="flex items-center">
+                    <svg class="w-4 h-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    Partners
+                </li>
+            </ul>
+            <div class="my-7 w-full flex flex-col space-y-3 items-center group"><img alt=""
+                            class="h-24  transition-transform duration-500 ease-in-out group-hover:scale-75 group-hover:-translate-y-2 group-hover:rotate-[25deg] "
+                            src="data-analytics-icon.svg" />
+                        <div
+                            class="bg-slate-300 w-5 h-5 transition-transform ease-in-out duration-500 group-hover:scale-x-[5.0] group-hover:scale-y-75 rounded-full transform scale-x-[6.0]">
+                        </div>
+                    </div>
+            <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800">Learn more →</a>
+        </div>
+    </div>
+    </div>
+    
+    <div class="mt-12 text-center">
+        <a href="#"
+            class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300 inline-block">View
+            All Services</a>
+    </div>
+    </div>
+    </div>
+
+    <!-- pricing plains -->
+    <div id="mainCoantiner">
+        <!--dust particel-->
+        <div class="margin-body">
+
+            <div>
+                <div class="starsec"></div>
+                <div class="starthird"></div>
+                <div class="starfourth"></div>
+                <div class="starfifth"></div>
+            </div>
+            <!--Dust particle end--->
+
+            <div class="w-full text-center mt-24 mb-16 px-4">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-wide inline-block relative pb-4">
+                    <span class="text-gray-300 font-light">Pricing</span> PLANS
+                    <!-- Underline -->
+                    <span class="block h-[3px] w-24 bg-yellow-400 mx-auto mt-4 rounded-full"></span>
+                </h2>
+                <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+                    Select the most suitable plan based on your trading needs and market exposure.
+                </p>
+            </div>
+
+
+            <!-- Responsive pricing table using Tailwind CSS utility classes -->
+            <div class="flex flex-wrap gap-6 justify-center items-stretch">
+                <div class="w-full sm:w-1/2 lg:w-1/4 flex flex-col">
+                    <div class="pricing-column flex flex-col h-full">
+                        <div class="pricing-price-row">
+                            <div class="pricing-price-wrapper">
+                                <div class="pricing-price">
+                                    <div class="pricing-cost">₹9999
+                                        +GST</div>
+                                    <div class="time">Per Month</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-row-title">
+                            <div class="pricing_row_title">BASIC PLAN</div>
+                        </div>
+                        <figure class="pricing-row">1 pre-bulit strategy</figure>
+                        <figure class="pricing-row"><span>Basic market analysis </span></figure>
+                        <figure class="pricing-row">1-2 trading signal</figure>
+                        <figure class="pricing-row">Nifty option </figure>
+                        
+                        <div class="pricing-footer mt-auto">
+                            <div class="gem-button-container gem-button-position-center"><a href="#"
+                                    class="gem-button gem-green">order now</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 lg:w-1/4 flex flex-col">
+                    <div class="pricing-column flex flex-col h-full">
+                        <div class="pricing-price-row">
+                            <div class="pricing-price-wrapper">
+                                <div class="pricing-price">
+                                    <div class="pricing-cost">₹29000 
+                                        +GST
+                                    </div>
+                                    <div class="time">Per Quarter</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-row-title">
+                            <div class="pricing_row_title">BASIC PLAN</div>
+                        </div>
+                        <figure class="pricing-row">1 pre-bulit strategy</figure>
+                        <figure class="pricing-row"><span>Basic market analysis </span></figure>
+                        <figure class="pricing-row">1-2 trading signal</figure>
+                        <figure class="pricing-row">Nifty option </figure>
+                        <figure class="pricing-row strike">1-3 trading signal</figure>
+                        <div class="pricing-footer mt-auto">
+                            <div class="gem-button-container gem-button-position-center"><a
+                                    class="gem-button gem-purpel">order now</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 lg:w-1/4 flex flex-col">
+                    <div class="pricing-column flex flex-col h-full">
+                        <div class="pricing-price-row">
+                            <div class="pricing-price-wrapper">
+                                <div class="pricing-price">
+                                    <div class="pricing-cost">₹49000
+                                        +GST
+                                    </div>
+                                    <div class="time">Per Half Year</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-row-title">
+                            <div class="pricing_row_title">BASIC PLAN</div>
+                        </div>
+                        <figure class="pricing-row">2 strategy</figure>
+                        <figure class="pricing-row"><span>Basic market analysis </span></figure>
+                        <figure class="pricing-row">1-3 trading signal</figure>
+                        <figure class="pricing-row">Nifty or Bank Nifty option </figure>
+                        
+                        <div class="pricing-footer mt-auto">
+                            <div class="gem-button-container gem-button-position-center">
+                                <a class="gem-button gem-orange">order now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 lg:w-1/4 flex flex-col">
+                    <div class="pricing-column flex flex-col h-full">
+                        <div class="pricing-price-row">
+                            <div class="pricing-price-wrapper">
+                                <div class="pricing-price">
+                                    <div class="pricing-cost">₹11000 
+                                        +GST
+                                    </div>
+                                    <div class="time">Per Month</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-row-title">
+                            <div class="pricing_row_title">INDEX OPTION PREMIUM </div>
+                        </div>
+                        <figure class="pricing-row">2 strategies</figure>
+                        <figure class="pricing-row"><span>No of account 2</span></figure>
+                        <figure class="pricing-row">Limited signals</figure>
+                        <figure class="pricing-row"><span>Nifty  option</span></figure>
+                        <figure class="pricing-row">Bank nifty option</figure>
+                        <figure class="pricing-row"><span>Finnifty option</span></figure>
+                        <figure class="pricing-row">Sensex option </figure>
+                        <figure class="pricing-row"><span>Fully automatic</span></figure>
+                        <figure class="pricing-row"><span>Call and test support</span></figure>
+                        
+                        <div class="pricing-footer mt-auto">
+                            <div class="gem-button-container gem-button-position-center"><a href="#"
+                                    class="gem-button gem-green">order now</a></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="w-full sm:w-1/2 lg:w-1/4 flex flex-col">
+                    <div class="pricing-column flex flex-col h-full">
+                        <div class="pricing-price-row">
+                            <div class="pricing-price-wrapper">
+                                <div class="pricing-price">
+                                    <div class="pricing-cost">₹31000
+                                        +GST</div>
+                                    <div class="time">Per Quarter</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-row-title">
+                            <div class="pricing_row_title">INDEX OPTION PREMIUM</div>
+                        </div>
+                        <figure class="pricing-row">2 strategies</figure>
+                        <figure class="pricing-row"><span>No of account 3 <figure class="pricing-row strike">No. of account 2</figure> </span></figure>
+                        <figure class="pricing-row"><span>Nifty  option</span></figure>
+                        <figure class="pricing-row">Bank nifty option</figure>
+                        <figure class="pricing-row"><span>Finnifty option</span></figure>
+                        <figure class="pricing-row">Sensex option </figure>
+                        <figure class="pricing-row"><span>Fully automatic</span></figure>
+                        <figure class="pricing-row"><span>Call and test support</span></figure>
+                        <div class="pricing-footer mt-auto">
+                            <div class="gem-button-container gem-button-position-center">
+                                <a class="gem-button gem-orange">order now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full sm:w-1/2 lg:w-1/4 flex flex-col">
+                    <div class="pricing-column flex flex-col h-full">
+                        <div class="pricing-price-row">
+                            <div class="pricing-price-wrapper">
+                                <div class="pricing-price">
+                                    <div class="pricing-cost">₹51000 +GST
+                                    </div>
+                                    <div class="time" style="display:inline-block;">Per Half Year</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-row-title">
+                            <div class="pricing_row_title">INDEX OPTION PREMIUM</div>
+                        </div>
+                        <figure class="pricing-row">2 strategies</figure>
+                        <figure class="pricing-row"><span>No of account 3  </span></figure>
+                        <figure class="pricing-row"><span>Nifty  option</span></figure>
+                        <figure class="pricing-row">Bank nifty option</figure>
+                        <figure class="pricing-row"><span>Finnifty option</span></figure>
+                        <figure class="pricing-row">Sensex option </figure>
+                        <figure class="pricing-row"><span>Fully automatic</span></figure>
+                        <figure class="pricing-row"><span>Call and test support</span></figure>
+                        <div class="pricing-footer mt-auto"></div>
+                            <div class="gem-button-container gem-button-position-center"><a
+                                    class="gem-button gem-yellow">order now</a></div>
+                        </div>
+                        
+                    </div>
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6" role="alert">
+                        <strong class="font-bold">Alert:</strong>
+                        <span class="block sm:inline">No refund policy. Please check our policy before making a payment.</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Community Section -->
+    
+
+    <div id="community" class="bg-gray-50 py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Connect with Innovators</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Explore, discuss, and exchange ideas on algo trading strategies, custom software builds, AI-driven analytics, and digital growth tools—all in one expert-driven community.
+      </p>
+    </div>
+
+    <!-- Community Posts -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+    
+        <!-- Post 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-md">
+            <div class="flex items-start mb-4">
+                <img src="https://randomuser.me/api/portraits/men/50.jpg" alt="User avatar" class="h-10 w-10 rounded-full">
+                <div class="ml-3">
+                    <div class="font-medium">Amit Sharma</div>
+                    <div class="text-gray-500 text-sm">Posted 2 hours ago</div>
+                </div>
+            </div>
+            <p class="text-gray-700 mb-4">
+                Deployed my custom algo on Jet IT’s platform using API Bridge—executed 25 trades with sub-100ms latency.
+                Clean execution. Anyone tested it with Binance or Fyers?
+            </p>
+            <div class="chart-container mb-4" style="height: 200px;"></div>
+            <div class="flex justify-between items-center">
+                <div class="flex space-x-4">
+                    <button class="flex items-center text-gray-500 hover:text-blue-600">
+                        <svg class="h-5 w-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017L7 20m7-10V5a2 2 0 00-2-2">
+                            </path>
+                        </svg>
+                        42
+                    </button>
+                    <button class="flex items-center text-gray-500 hover:text-blue-600">
+                        <svg class="h-5 w-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z">
+                            </path>
+                        </svg>
+                        18
+                    </button>
+                </div>
+                <button class="text-blue-600 text-sm">View Strategy</button>
+            </div>
+        </div>
+    
+        <!-- Post 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-md">
+            <div class="flex items-start mb-4">
+                <img src="https://randomuser.me/api/portraits/women/37.jpg" alt="User avatar"
+                    class="h-10 w-10 rounded-full">
+                <div class="ml-3">
+                    <div class="font-medium">Priya Singh</div>
+                    <div class="text-gray-500 text-sm">Posted yesterday</div>
+                </div>
+            </div>
+            <p class="text-gray-700 mb-4">
+                Used Jet IT’s predictive analytics for a retail dashboard—forecast accuracy hit 92%. Also integrated
+                real-time tracking via their custom mobile app. Highly recommend their data team.
+            </p>
+            <div class="chart-container mb-4" style="height: 200px;"></div>
+            <div class="flex justify-between items-center">
+                <div class="flex space-x-4">
+                    <button class="flex items-center text-gray-500 hover:text-blue-600">
+                        <svg class="h-5 w-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017L7 20m7-10V5a2 2 0 00-2-2">
+                            </path>
+                        </svg>
+                        87
+                    </button>
+                    <button class="flex items-center text-gray-500 hover:text-blue-600">
+                        <svg class="h-5 w-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z">
+                            </path>
+                        </svg>
+                        34
+                    </button>
+                </div>
+                <button class="text-blue-600 text-sm">See Results</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Join Button -->
+    <div class="text-center">
+        <button
+            class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300">
+            Join Jet IT Community
+        </button>
+    </div>
+    
+    </div>
+    </div>
+    <!-- Testimonial Section -->
+<section id="testimonials"class="bg-gray-50 py-16 px-4">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-8 text-indigo-700">What Our Clients Say</h2>
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper max-w-3xl mx-auto">
+      <div class="swiper-wrapper">
+
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:rotate-1 hover:scale-105">
+          <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Client Photo" class="w-16 h-16 rounded-full mx-auto mb-4">
+          <p class="text-gray-600 italic mb-4">"Jet IT Solutions transformed our business with cutting-edge trading tools. The algo software is precise and easy to use!"</p>
+          <h4 class="text-indigo-600 font-semibold">Rohit Mehta</h4>
+          <span class="text-sm text-gray-500">Algo Trader</span>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:-rotate-1 hover:scale-105">
+          <img src="https://randomuser.me/api/portraits/women/17.jpg" alt="Client Photo" class="w-16 h-16 rounded-full mx-auto mb-4">
+          <p class="text-gray-600 italic mb-4">"Their mobile app services exceeded our expectations. Highly professional team!"</p>
+          <h4 class="text-indigo-600 font-semibold">Pooja Sharma</h4>
+          <span class="text-sm text-gray-500">App Founder</span>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="swiper-slide bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:rotate-2 hover:scale-105">
+          <img src="https://randomuser.me/api/portraits/men/50.jpg" alt="Client Photo" class="w-16 h-16 rounded-full mx-auto mb-4">
+          <p class="text-gray-600 italic mb-4">"Their digital marketing boosted our brand’s visibility tremendously. Outstanding work!"</p>
+          <h4 class="text-indigo-600 font-semibold">Aman Verma</h4>
+          <span class="text-sm text-gray-500">Marketing Manager</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FAQ -->
+<div class="py-4 bg-white">
+    <div class="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
+
+        <div class="text-center">
+            <p class="mt-4 text-sm leading-7 text-gray-500 font-regular">
+                F.A.Q
+            </p>
+            <h3 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-gray-900">
+                Frequently Asked <span class="text-indigo-600">Questions</span>
+            </h3>
+
+        </div>
+
+        <div class="mt-20">
+            <ul class="">
+
+                <li class="text-left mb-10">
+                    <div class="flex flex-row items-start mb-5">
+                        <div
+                            class="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold" data-aos="fade-up" data-aos-duration="1000">
+                            <svg width="30px" fill="white" height="30px" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g data-name="Layer 2">
+                                    <g data-name="menu-arrow">
+                                        <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                        <path
+                                            d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                        </path>
+                                        <circle cx="12" cy="19" r="1"></circle>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="bg-gray-100 p-5 px-10 w-full flex items-center" data-aos="fade-up" data-aos-duration="1000">
+                            <h4 class="text-md leading-6 font-medium text-gray-900">What makes your services unique?</h4>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row items-start" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="bg-indigo-100 p-5 px-10 w-full flex items-center">
+                            <p class="text-gray-700 text-sm">We blend AI, automation, and tailored development to craft future-ready tech solutions for every business type.
+                            </p>
+                        </div>
+                        <div
+                            class="hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold" >
+                            <svg height="25px" fill="white" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                y="0px" viewBox="0 0 295.238 295.238" style="enable-background:new 0 0 295.238 295.238;"
+                                xml:space="preserve">
+                                <g>
+                                    <g>
+                                        <g>
+                                            <path d="M277.462,0.09l-27.681,20.72l-27.838,64.905h-22.386l-8.79-19.048h5.743c10.505,0,19.048-8.452,19.048-18.957V28.571
+				h9.524V0H196.51v28.571h9.524V47.71c0,5.248-4.271,9.433-9.524,9.433h-10.138L174.2,30.81l14.581-7.267L141.038,3.095
+				l-11.224,39.281c-0.305-23.371-19.386-42.29-42.829-42.29c-23.633,0-42.857,19.224-42.857,42.857
+				c0,14.281,7.233,27.676,19.048,35.595v7.176H51.643L50.9,89.619c-2.314,12.005-2.529,24.343-0.638,36.648l-32.486,57.905
+				l35.876,8.195v60.014h47.619v42.857h114.286v-66.357c33.333-23.581,52.371-61.495,52.343-101.943l0.01-17.371
+				c0-6.548-0.605-13.276-1.824-19.905l-0.705-3.948h-9.348l21.429-51.338V0.09z M206.033,19.138V9.614h9.524v9.524H206.033z
+				 M189.067,85.714h-18.062l-8.657-19.048h17.929L189.067,85.714z M147.219,16.119l18.929,8.11l-4.467,2.19l14.2,30.724h-17.862
+				l-11.605-25.471l-4.262,2.152L147.219,16.119z M160.543,85.715h-21.176v-9.433c0-5.252,4.271-9.614,9.524-9.614h2.995v-0.001
+				L160.543,85.715z M141.843,44.652l5.776,12.71c-9.905,0.667-17.776,8.848-17.776,18.919v9.433h-19.048v-7.176
+				c9.529-6.386,15.995-16.352,18.176-27.452L141.843,44.652z M53.653,42.948c0-18.376,14.957-33.333,33.333-33.333
+				c18.376,0,33.333,14.957,33.333,33.333c0,11.829-6.39,22.881-16.671,28.838l-2.376,1.371v12.557h-9.524V56.352
+				c5.529-1.971,9.524-7.21,9.524-13.41c0-7.876-6.41-14.286-14.286-14.286c-7.876,0-14.286,6.411-14.286,14.287
+				c0,6.2,3.995,11.438,9.524,13.41v29.362H72.7V73.157l-2.376-1.376C60.043,65.824,53.653,54.776,53.653,42.948z M86.986,47.71
+				c-2.629,0-4.762-2.139-4.762-4.762c0-2.629,2.133-4.762,4.762-4.762c2.629,0,4.762,2.133,4.762,4.762S89.615,47.71,86.986,47.71z
+				 M257.366,95.239c0.691,4.761,1.039,9.59,1.039,14.285l0.01,17.405c0.029,38.148-18.795,73.871-50.286,95.552l-2.095,1.429
+				v61.805h-95.238v-42.857h-47.62v-58.086l-30.862-7.043l27.876-49.7l-0.271-1.7c-1.771-10.419-1.871-21.567-0.333-31.09h3.59
+				h47.619H257.366z M245.714,85.714H232.3l23.738-55.343l10.557,5.257L245.714,85.714z M267.938,25.714l-5.267-2.633l5.267-3.943
+				V25.714z"></path>
+                                            <path d="M96.51,123.81c-7.876,0-14.286-4.762-14.286-14.286H72.7c0,14.286,10.681,23.81,23.81,23.81
+				c13.129,0,23.81-9.524,23.81-23.81h-9.524C110.795,119.048,104.386,123.81,96.51,123.81z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                </li>
+                <li class="text-left mb-10">
+                    <div class="flex flex-row items-start mb-5">
+                        <div
+                            class="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold" data-aos="fade-up" data-aos-duration="1000">
+                            <svg width="30px" fill="white" height="30px" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g data-name="Layer 2">
+                                    <g data-name="menu-arrow">
+                                        <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                        <path
+                                            d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                        </path>
+                                        <circle cx="12" cy="19" r="1"></circle>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="bg-gray-100 p-5 px-10 w-full flex items-center" data-aos="fade-up" data-aos-duration="1000">
+                            <h4 class="text-md leading-6 font-medium text-gray-900">Is support included post-launch?</h4>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row items-start" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="bg-indigo-100 p-5 px-10 w-full flex items-center" >
+                            <p class="text-gray-700 text-sm">Absolutely. We offer technical support, performance monitoring, and upgrades for peace of mind.
+                            </p>
+                        </div>
+                        <div
+                            class="hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                            <svg height="25px" fill="white" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                y="0px" viewBox="0 0 295.238 295.238" style="enable-background:new 0 0 295.238 295.238;"
+                                xml:space="preserve">
+                                <g>
+                                    <g>
+                                        <g>
+                                            <path d="M277.462,0.09l-27.681,20.72l-27.838,64.905h-22.386l-8.79-19.048h5.743c10.505,0,19.048-8.452,19.048-18.957V28.571
+				h9.524V0H196.51v28.571h9.524V47.71c0,5.248-4.271,9.433-9.524,9.433h-10.138L174.2,30.81l14.581-7.267L141.038,3.095
+				l-11.224,39.281c-0.305-23.371-19.386-42.29-42.829-42.29c-23.633,0-42.857,19.224-42.857,42.857
+				c0,14.281,7.233,27.676,19.048,35.595v7.176H51.643L50.9,89.619c-2.314,12.005-2.529,24.343-0.638,36.648l-32.486,57.905
+				l35.876,8.195v60.014h47.619v42.857h114.286v-66.357c33.333-23.581,52.371-61.495,52.343-101.943l0.01-17.371
+				c0-6.548-0.605-13.276-1.824-19.905l-0.705-3.948h-9.348l21.429-51.338V0.09z M206.033,19.138V9.614h9.524v9.524H206.033z
+				 M189.067,85.714h-18.062l-8.657-19.048h17.929L189.067,85.714z M147.219,16.119l18.929,8.11l-4.467,2.19l14.2,30.724h-17.862
+				l-11.605-25.471l-4.262,2.152L147.219,16.119z M160.543,85.715h-21.176v-9.433c0-5.252,4.271-9.614,9.524-9.614h2.995v-0.001
+				L160.543,85.715z M141.843,44.652l5.776,12.71c-9.905,0.667-17.776,8.848-17.776,18.919v9.433h-19.048v-7.176
+				c9.529-6.386,15.995-16.352,18.176-27.452L141.843,44.652z M53.653,42.948c0-18.376,14.957-33.333,33.333-33.333
+				c18.376,0,33.333,14.957,33.333,33.333c0,11.829-6.39,22.881-16.671,28.838l-2.376,1.371v12.557h-9.524V56.352
+				c5.529-1.971,9.524-7.21,9.524-13.41c0-7.876-6.41-14.286-14.286-14.286c-7.876,0-14.286,6.411-14.286,14.287
+				c0,6.2,3.995,11.438,9.524,13.41v29.362H72.7V73.157l-2.376-1.376C60.043,65.824,53.653,54.776,53.653,42.948z M86.986,47.71
+				c-2.629,0-4.762-2.139-4.762-4.762c0-2.629,2.133-4.762,4.762-4.762c2.629,0,4.762,2.133,4.762,4.762S89.615,47.71,86.986,47.71z
+				 M257.366,95.239c0.691,4.761,1.039,9.59,1.039,14.285l0.01,17.405c0.029,38.148-18.795,73.871-50.286,95.552l-2.095,1.429
+				v61.805h-95.238v-42.857h-47.62v-58.086l-30.862-7.043l27.876-49.7l-0.271-1.7c-1.771-10.419-1.871-21.567-0.333-31.09h3.59
+				h47.619H257.366z M245.714,85.714H232.3l23.738-55.343l10.557,5.257L245.714,85.714z M267.938,25.714l-5.267-2.633l5.267-3.943
+				V25.714z"></path>
+                                            <path d="M96.51,123.81c-7.876,0-14.286-4.762-14.286-14.286H72.7c0,14.286,10.681,23.81,23.81,23.81
+				c13.129,0,23.81-9.524,23.81-23.81h-9.524C110.795,119.048,104.386,123.81,96.51,123.81z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                </li>
+                <li class="text-left mb-10">
+                    <div class="flex flex-row items-start mb-5">
+                        <div
+                            class="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                            <svg width="30px" fill="white" height="30px" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g data-name="Layer 2">
+                                    <g data-name="menu-arrow">
+                                        <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                        <path
+                                            d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                        </path>
+                                        <circle cx="12" cy="19" r="1"></circle>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="bg-gray-100 p-5 px-10 w-full flex items-center" data-aos="fade-up" data-aos-duration="1000">
+                            <h4 class="text-md leading-6 font-medium text-gray-900">How fast can I get started?</h4>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row items-start">
+                        <div class="bg-indigo-100 p-5 px-10 w-full flex items-center" data-aos="fade-right" data-aos-duration="1000">
+                            <p class="text-gray-700 text-sm">Reach out today — we’ll schedule a free consultation and prepare a tailored roadmap in 48 hours.
+                            </p>
+                        </div>
+                        <div
+                            class="hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                            <svg height="25px" fill="white" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                y="0px" viewBox="0 0 295.238 295.238" style="enable-background:new 0 0 295.238 295.238;"
+                                xml:space="preserve">
+                                <g>
+                                    <g>
+                                        <g>
+                                            <path d="M277.462,0.09l-27.681,20.72l-27.838,64.905h-22.386l-8.79-19.048h5.743c10.505,0,19.048-8.452,19.048-18.957V28.571
+				h9.524V0H196.51v28.571h9.524V47.71c0,5.248-4.271,9.433-9.524,9.433h-10.138L174.2,30.81l14.581-7.267L141.038,3.095
+				l-11.224,39.281c-0.305-23.371-19.386-42.29-42.829-42.29c-23.633,0-42.857,19.224-42.857,42.857
+				c0,14.281,7.233,27.676,19.048,35.595v7.176H51.643L50.9,89.619c-2.314,12.005-2.529,24.343-0.638,36.648l-32.486,57.905
+				l35.876,8.195v60.014h47.619v42.857h114.286v-66.357c33.333-23.581,52.371-61.495,52.343-101.943l0.01-17.371
+				c0-6.548-0.605-13.276-1.824-19.905l-0.705-3.948h-9.348l21.429-51.338V0.09z M206.033,19.138V9.614h9.524v9.524H206.033z
+				 M189.067,85.714h-18.062l-8.657-19.048h17.929L189.067,85.714z M147.219,16.119l18.929,8.11l-4.467,2.19l14.2,30.724h-17.862
+				l-11.605-25.471l-4.262,2.152L147.219,16.119z M160.543,85.715h-21.176v-9.433c0-5.252,4.271-9.614,9.524-9.614h2.995v-0.001
+				L160.543,85.715z M141.843,44.652l5.776,12.71c-9.905,0.667-17.776,8.848-17.776,18.919v9.433h-19.048v-7.176
+				c9.529-6.386,15.995-16.352,18.176-27.452L141.843,44.652z M53.653,42.948c0-18.376,14.957-33.333,33.333-33.333
+				c18.376,0,33.333,14.957,33.333,33.333c0,11.829-6.39,22.881-16.671,28.838l-2.376,1.371v12.557h-9.524V56.352
+				c5.529-1.971,9.524-7.21,9.524-13.41c0-7.876-6.41-14.286-14.286-14.286c-7.876,0-14.286,6.411-14.286,14.287
+				c0,6.2,3.995,11.438,9.524,13.41v29.362H72.7V73.157l-2.376-1.376C60.043,65.824,53.653,54.776,53.653,42.948z M86.986,47.71
+				c-2.629,0-4.762-2.139-4.762-4.762c0-2.629,2.133-4.762,4.762-4.762c2.629,0,4.762,2.133,4.762,4.762S89.615,47.71,86.986,47.71z
+				 M257.366,95.239c0.691,4.761,1.039,9.59,1.039,14.285l0.01,17.405c0.029,38.148-18.795,73.871-50.286,95.552l-2.095,1.429
+				v61.805h-95.238v-42.857h-47.62v-58.086l-30.862-7.043l27.876-49.7l-0.271-1.7c-1.771-10.419-1.871-21.567-0.333-31.09h3.59
+				h47.619H257.366z M245.714,85.714H232.3l23.738-55.343l10.557,5.257L245.714,85.714z M267.938,25.714l-5.267-2.633l5.267-3.943
+				V25.714z" ></path>
+                                            <path d="M96.51,123.81c-7.876,0-14.286-4.762-14.286-14.286H72.7c0,14.286,10.681,23.81,23.81,23.81
+				c13.129,0,23.81-9.524,23.81-23.81h-9.524C110.795,119.048,104.386,123.81,96.51,123.81z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- Contact Us Section -->
+<section class="relative bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white py-20 overflow-hidden" id="contact" >
+  <!-- Phone-style background animation -->
+  <div class="absolute inset-0 opacity-10 bg-[url('https://img.icons8.com/ios-filled/100/ffffff/phone.png')] bg-repeat animate-pulse" ></div>
+
+  <div class="max-w-4xl mx-auto z-10 relative px-4">
+    <h2 class="text-4xl font-extrabold text-center mb-10 relative z-20">
+      <span class="inline-block animate-bounce">📞</span> Get in Touch
+    </h2>
+
+    <form class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl shadow-2xl p-8 space-y-6 group cursor-[url('https://img.icons8.com/ios-filled/50/phone.png'),auto] transition-transform duration-300 hover:scale-105">
+      <div class="flex flex-col md:flex-row md:space-x-6">
+        <div class="flex-1">
+          <label class="block mb-2 text-lg font-semibold">Your Name</label>
+          <input type="text" placeholder="Enter name"
+            class="w-full px-4 py-2 text-gray-800 rounded-md bg-white bg-opacity-80 focus:outline-none focus:ring-4 focus:ring-blue-400 transition-all duration-300">
+        </div>
+        <div class="flex-1 mt-4 md:mt-0">
+          <label class="block mb-2 text-lg font-semibold">Your Phone</label>
+          <input type="tel" placeholder="+91 XXXXXXXXXX"
+            class="w-full px-4 py-2 text-gray-800 rounded-md bg-white bg-opacity-80 focus:outline-none focus:ring-4 focus:ring-green-400 transition-all duration-300">
+        </div>
+      </div>
+
+      <div>
+        <label class="block mb-2 text-lg font-semibold">Your Message</label>
+        <textarea placeholder="Your message..."
+          class="w-full px-4 py-2 h-32 text-gray-800 rounded-md bg-white bg-opacity-80 focus:outline-none focus:ring-4 focus:ring-purple-400 transition-all duration-300 resize-none"></textarea>
+      </div>
+    <div class="text-center">
+        <a href="contact.html"
+            class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:scale-105 transform transition duration-300 cursor-[url('https://img.icons8.com/ios-filled/24/phone.png'),auto] inline-block">
+            📞 Call Us Now
+        </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Animated Input Box (Bonus Feature) -->
+<section class="py-10 bg-slate-950">
+  <div class="max-w-xl mx-auto px-4">
+    <h3 class="text-white text-2xl mb-4 font-semibold">Leave a Feedback</h3>
+    <form class="space-y-6">
+      <div class="relative">
+        <input type="text" required
+               class="peer w-full px-4 py-3 bg-transparent border-b-2 border-gray-600 text-white placeholder-transparent focus:outline-none focus:border-indigo-500 transition-all duration-300"
+               placeholder="Your Name" />
+        <label
+          class="absolute left-4 top-3 text-gray-400 transition-all duration-300 peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-[-12px] peer-focus:text-sm peer-focus:text-indigo-400">
+          Your Name
+        </label>
+      </div>
+      <div class="relative">
+        <textarea rows="4" required
+                  class="peer w-full px-4 py-3 bg-transparent border-b-2 border-gray-600 text-white placeholder-transparent focus:outline-none focus:border-indigo-500 transition-all duration-300"
+                  placeholder="Your Feedback"></textarea>
+        <label
+          class="absolute left-4 top-3 text-gray-400 transition-all duration-300 peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-[-12px] peer-focus:text-sm peer-focus:text-indigo-400">
+          Your Feedback
+        </label>
+      </div>
+      <button type="submit"
+              class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-full transition-all duration-300">
+        Submit
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- Carousel JS -->
+<script>
+  const carousel = document.querySelector('.carousel-slide');
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % 3;
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+  }, 4000);
+</script>
+
+
+
+
+    <!-- CTA Section -->
+    <div class="bg-blue-600 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">Ready to Elevate Your Trading?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">Join thousands of traders who use ChartTrader to visualize markets, build strategies, and share ideas.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">Start Free - No Credit Card</button>
+                <button class="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">Watch Demo Video</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    
+    <footer class="bg-gradient-to-r from-white via-gray-100 to-white px-6 lg:px-12 py-10 shadow-inner">
+        <!-- Divider -->
+        <div class="w-full h-0.5 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 my-6"></div>
+    
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 text-gray-700">
+            <!-- Logo + Social + Contact -->
+            <div class="md:col-span-2">
+                <!-- Logo -->
+                <div class="flex items-center mb-4">
+                    <img src="cropped_circle_image.png" alt="Icon" class="h-16 w-16 rounded-full shadow-md">
+                    <span
+                        class="ml-3 text-2xl font-bold bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent">
+                        Jet IT Solution
+                    </span>
+                </div>
+    
+                <!-- Description -->
+                <p class="text-gray-600 text-sm mb-4">
+                    Professional-grade charting and strategy building for traders of all levels.
+                </p>
+    
+                <!-- Contact Info -->
+                <div class="text-sm text-gray-600 space-y-1 mb-4">
+                    <p><strong class="text-gray-800">Email:</strong> support@jetitsolutions.com</p>
+                    <p><strong class="text-gray-800">Phone:</strong> +91 9876543210</p>
+                    <p><strong class="text-gray-800">Address:</strong> Mumbai, India</p>
+                </div>
+    
+                <!-- Social Icons -->
+                <ul class="flex space-x-5 mt-4">
+                    <li>
+                        <a href="#" class="text-gray-600 hover:text-pink-500 text-xl transition">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-600 hover:text-blue-400 text-xl transition">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-600 hover:text-blue-600 text-xl transition">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-600 hover:text-gray-900 text-xl transition">
+                            <i class="fa fa-codepen"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+    
+            <!-- Platform Links -->
+            <div>
+                <h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-gray-800">Platform</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Charts</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Strategy Builder</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Backtesting</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Indicators</a></li>
+                </ul>
+            </div>
+    
+            <!-- Resources -->
+            <div>
+                <h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-gray-800">Resources</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Documentation</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Tutorials</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Blog</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Market Data</a></li>
+                </ul>
+            </div>
+    
+            <!-- Company -->
+            <div>
+                <h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-gray-800">Company</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">About</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Careers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Privacy</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-500">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Bottom -->
+        <div class="mt-10 border-t border-gray-300 pt-6 md:flex md:items-center md:justify-between text-sm text-gray-600">
+            <p>&copy; 2023 Algo IT Services. All rights reserved.</p>
+
+            <p >&copy; Developed by <a href="http://kibovalut.me/"class ="underline">Pulkit Kumar Talan</a></p>
+            <p class="mt-4 md:mt-0">
+                Disclaimer: Trading involves risk. Past performance is not indicative of future results.
+            </p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        AOS.init();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize charts
+            initializeCharts();
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('[aria-controls="mobile-menu"]');
+            const mobileMenu = document.createElement('div');
+            mobileMenu.id = 'mobile-menu';
+            mobileMenu.className = 'hidden sm:hidden bg-white shadow-lg absolute top-16 left-0 right-0 z-50';
+            mobileMenu.innerHTML = `
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">Home</a>
+                    <a href="#charts" class="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900">Charts</a>
+                    <a href="#strategies" class="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900">Strategies</a>
+                    <a href="#community" class="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900">Community</a>
+                    <div class="pt-4 pb-3 border-t border-gray-200">
+                        <div class="flex items-center px-5">
+                            <button class="flex-shrink-0 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200">Login</button>
+                            <button class="ml-3 flex-shrink-0 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(mobileMenu);
+            
+            mobileMenuButton.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('block');
+            });
+            
+            // Smooth scrolling for all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Time filter selection
+            document.querySelectorAll('.time-filter').forEach(filter => {
+                filter.addEventListener('click', function() {
+                    document.querySelectorAll('.time-filter').forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    // In a real app, this would update the chart timeframe
+                });
+            });
+        });
+        
+        function initializeCharts() {
+            // Hero chart
+            const heroChart = LightweightCharts.createChart(document.getElementById('hero-chart'), {
+                width: document.getElementById('hero-chart').clientWidth,
+                height: document.getElementById('hero-chart').clientHeight,
+                layout: {
+                    backgroundColor: '#ffffff',
+                    textColor: '#333',
+                },
+                grid: {
+                    vertLines: {
+                        color: 'rgba(197, 203, 206, 0.5)',
+                    },
+                    horzLines: {
+                        color: 'rgba(197, 203, 206, 0.5)',
+                    },
+                },
+                crosshair: {
+                    mode: LightweightCharts.CrosshairMode.Normal,
+                },
+                rightPriceScale: {
+                    borderColor: 'rgba(197, 203, 206, 0.8)',
+                },
+                timeScale: {
+                    borderColor: 'rgba(197, 203, 206, 0.8)',
+                },
+            });
+            
+            const candleSeries = heroChart.addCandlestickSeries({
+                upColor: '#26a69a',
+                downColor: '#ef5350',
+                borderDownColor: '#ef5350',
+                borderUpColor: '#26a69a',
+                wickDownColor: '#ef5350',
+                wickUpColor: '#26a69a',
+            });
+            
+            // Sample data for demonstration
+            const candleData = generateCandleData(50);
+            candleSeries.setData(candleData);
+            
+            // Main chart
+            const mainChart = LightweightCharts.createChart(document.getElementById('main-chart'), {
+                width: document.getElementById('main-chart').clientWidth,
+                height: document.getElementById('main-chart').clientHeight,
+                layout: {
+                    backgroundColor: '#ffffff',
+                    textColor: '#333',
+                },
+                grid: {
+                    vertLines: {
+                        color: 'rgba(197, 203, 206, 0.5)',
+                    },
+                    horzLines: {
+                        color: 'rgba(197, 203, 206, 0.5)',
+                    },
+                },
+                crosshair: {
+                    mode: LightweightCharts.CrosshairMode.Normal,
+                },
+                rightPriceScale: {
+                    borderColor: 'rgba(197, 203, 206, 0.8)',
+                },
+                timeScale: {
+                    borderColor: 'rgba(197, 203, 206, 0.8)',
+                },
+            });
+            
+            const mainCandleSeries = mainChart.addCandlestickSeries({
+                upColor: '#26a69a',
+                downColor: '#ef5350',
+                borderDownColor: '#ef5350',
+                borderUpColor: '#26a69a',
+                wickDownColor: '#ef5350',
+                wickUpColor: '#26a69a',
+            });
+            
+            // Add a volume series
+            const volumeSeries = mainChart.addHistogramSeries({
+                color: '#26a69a',
+                priceFormat: {
+                    type: 'volume',
+                },
+                priceScaleId: '',
+                scaleMargins: {
+                    top: 0.8,
+                    bottom: 0,
+                },
+            });
+            
+            // Add a moving average
+            const smaLine = mainChart.addLineSeries({
+                color: '#2196F3',
+                lineWidth: 2,
+            });
+            
+            // Sample data for demonstration
+            const mainCandleData = generateCandleData(100);
+            const volumeData = generateVolumeData(mainCandleData);
+            const smaData = calculateSMA(mainCandleData, 20);
+            
+            mainCandleSeries.setData(mainCandleData);
+            volumeSeries.setData(volumeData);
+            smaLine.setData(smaData);
+            
+            // Initialize smaller charts
+            initializeSmallChart('chart-sp500', generateLineData(100, 3500, 4500));
+            initializeSmallChart('chart-eth', generateLineData(100, 1500, 3000));
+            initializeSmallChart('chart-gold', generateLineData(100, 1700, 2000));
+            
+            // Backtest chart
+            initializeBacktestChart();
+            
+            // Community charts
+            initializeSmallChart('community-chart-1', generateLineData(50, 150, 180));
+            initializeSmallChart('community-chart-2', generateLineData(50, 2000, 3000));
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                heroChart.resize(document.getElementById('hero-chart').clientWidth, document.getElementById('hero-chart').clientHeight);
+                mainChart.resize(document.getElementById('main-chart').clientWidth, document.getElementById('main-chart').clientHeight);
+            });
+        }
+        
+        function initializeSmallChart(elementId, data) {
+            const chart = LightweightCharts.createChart(document.getElementById(elementId), {
+                width: document.getElementById(elementId).clientWidth,
+                height: document.getElementById(elementId).clientHeight,
+                layout: {
+                    backgroundColor: '#ffffff',
+                    textColor: '#333',
+                },
+                grid: {
+                    vertLines: {
+                        visible: false,
+                    },
+                    horzLines: {
+                        visible: false,
+                    },
+                },
+                rightPriceScale: {
+                    borderVisible: false,
+                },
+                timeScale: {
+                    borderVisible: false,
+                },
+                crosshair: {
+                    horzLine: {
+                        visible: false,
+                    },
+                    vertLine: {
+                        visible: false,
+                    },
+                },
+            });
+            
+            const lineSeries = chart.addLineSeries({
+                color: '#2196F3',
+                lineWidth: 2,
+            });
+            
+            lineSeries.setData(data);
+            
+            window.addEventListener('resize', function() {
+                chart.resize(document.getElementById(elementId).clientWidth, document.getElementById(elementId).clientHeight);
+            });
+        }
+        
+        function initializeBacktestChart() {
+            const chart = LightweightCharts.createChart(document.getElementById('backtest-chart'), {
+                width: document.getElementById('backtest-chart').clientWidth,
+                height: document.getElementById('backtest-chart').clientHeight,
+                layout: {
+                    backgroundColor: '#ffffff',
+                    textColor: '#333',
+                },
+                grid: {
+                    vertLines: {
+                        visible: false,
+                    },
+                    horzLines: {
+                        visible: false,
+                    },
+                },
+                rightPriceScale: {
+                    borderVisible: false,
+                },
+                timeScale: {
+                    borderVisible: false,
+                },
+            });
+            
+            const areaSeries = chart.addAreaSeries({
+                topColor: 'rgba(33, 150, 243, 0.56)',
+                bottomColor: 'rgba(33, 150, 243, 0.04)',
+                lineColor: 'rgba(33, 150, 243, 1)',
+                lineWidth: 2,
+            });
+            
+            const equityCurve = generateEquityCurve(100);
+            areaSeries.setData(equityCurve);
+            
+            window.addEventListener('resize', function() {
+                chart.resize(document.getElementById('backtest-chart').clientWidth, document.getElementById('backtest-chart').clientHeight);
+            });
+        }
+        
+        // Helper functions to generate sample data
+        function generateCandleData(count) {
+            const data = [];
+            let time = new Date(Date.UTC(2023, 0, 1, 0, 0, 0, 0));
+            let basePrice = 40000;
+            let volatility = 1000;
+            
+            for (let i = 0; i < count; i++) {
+                const open = basePrice + Math.random() * volatility - volatility / 2;
+                const high = open + Math.random() * volatility;
+                const low = open - Math.random() * volatility;
+                const close = (open + high + low) / 3 + (Math.random() * volatility - volatility / 2);
+                
+                data.push({
+                    time: time.getTime() / 1000,
+                    open: open,
+                    high: high,
+                    low: low,
+                    close: close,
+                });
+                
+                time.setDate(time.getDate() + 1);
+                basePrice = close;
+            }
+            
+            return data;
+        }
+        
+        function generateVolumeData(candleData) {
+            return candleData.map(candle => ({
+                time: candle.time,
+                value: Math.floor(Math.random() * 1000) + 100,
+                color: candle.close >= candle.open ? 'rgba(38, 166, 154, 0.5)' : 'rgba(239, 83, 80, 0.5)',
+            }));
+        }
+        
+        function calculateSMA(data, period) {
+            const result = [];
+            
+            for (let i = period - 1; i < data.length; i++) {
+                let sum = 0;
+                for (let j = 0; j < period; j++) {
+                    sum += data[i - j].close;
+                }
+                result.push({
+                    time: data[i].time,
+                    value: sum / period,
+                });
+            }
+            
+            return result;
+        }
+        
+        function generateLineData(count, min, max) {
+            const data = [];
+            let time = new Date(Date.UTC(2023, 0, 1, 0, 0, 0, 0));
+            let value = (min + max) / 2;
+            const volatility = (max - min) / 20;
+            
+            for (let i = 0; i < count; i++) {
+                value += Math.random() * volatility - volatility / 2;
+                value = Math.max(min, Math.min(max, value));
+                
+                data.push({
+                    time: time.getTime() / 1000,
+                    value: value,
+                });
+                
+                time.setDate(time.getDate() + 1);
+            }
+            
+            return data;
+        }
+        
+        function generateEquityCurve(count) {
+            const data = [];
+            let time = new Date(Date.UTC(2023, 0, 1, 0, 0, 0, 0));
+            let equity = 10000;
+            
+            for (let i = 0; i < count; i++) {
+                // Simulate a generally upward trend with some drawdowns
+                const change = (Math.random() * 300 - 100) * (1 + i / count);
+                equity += change;
+                equity = Math.max(9000, equity); // Ensure we don't go below a certain level
+                
+                data.push({
+                    time: time.getTime() / 1000,
+                    value: equity,
+                });
+                
+                time.setDate(time.getDate() + 1);
+            }
+            
+            return data;
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="cropped_circle_image.png">
+  <style>
+    .service-card:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .custom-cursor:hover {
+      cursor: url('https://cdn-icons-png.flaticon.com/512/126/126472.png'), auto;
+    }
+
+    .back-button {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .back-button:hover {
+      transform: translateX(-4px) scale(1.05);
+    }
+    
+  </style>
+</head>
+<body class="bg-[#f9f9f9] text-[#1f2937] font-sans">
+
+  <!-- Header with Logo and Back Button -->
+  <header class="flex items-center justify-between px-6 lg:px-20 py-4 bg-white shadow sticky top-0 z-50">
+    <!-- Logo -->
+    <div class="flex items-center gap-2">
+      <img src="cropped_circle_image.png" alt="Logo" class="w-20 h-20">
+      <span class="text-2xl font-bold text-blue-700">Jet IT Solution</span>
+    </div>
+
+    <!-- Animated Back Button -->
+    <a href="javascript:history.back()" class="back-button text-blue-600 hover:text-blue-800 font-medium border border-blue-500 px-4 py-2 rounded-full hover:bg-blue-100 transition">
+      ← Back
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-16 bg-gradient-to-r from-blue-100 to-purple-200">
+    <h1 class="text-4xl font-bold mb-4">Our Services</h1>
+    <p class="text-lg text-gray-700">We provide a wide range of services across IT and Algo trading to accelerate your business growth.</p>
+  </section>
+
+  <!-- IT Services -->
+  <section class="px-6 py-10 lg:px-20 custom-cursor">
+    <h2 class="text-3xl font-semibold mb-8 border-b-4 border-blue-400 inline-block">🔷 IT Services</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Web Development -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2721/2721273.png" alt="Web Dev" class="w-16 mb-4">
+        <h3 class="text-xl font-bold mb-2">Web Development</h3>
+        <p class="text-gray-600">Building responsive, secure, and SEO-friendly websites tailored for your business goals.</p>
+      </div>
+
+      <!-- Mobile App Development -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3445/3445527.png" alt="Mobile App" class="w-16 mb-4">
+        <h3 class="text-xl font-bold mb-2">Mobile App Development</h3>
+        <p class="text-gray-600">Custom iOS and Android mobile apps with great UI/UX and backend support.</p>
+      </div>
+
+      <!-- Design -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Design" class="w-16 mb-4">
+        <h3 class="text-xl font-bold mb-2">Design</h3>
+        <p class="text-gray-600">Creative UI/UX, graphic design, and branding services to create a strong identity.</p>
+      </div>
+
+      <!-- Software Development -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/906/906324.png" alt="Software Dev" class="w-16 mb-4">
+        <h3 class="text-xl font-bold mb-2">Software Development</h3>
+        <p class="text-gray-600">Full-cycle software development using latest technologies and agile methodology.</p>
+      </div>
+
+      <!-- Digital Marketing -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Marketing" class="w-16 mb-4">
+        <h3 class="text-xl font-bold mb-2">Digital Marketing</h3>
+        <p class="text-gray-600">End-to-end digital marketing including SEO, PPC, email campaigns and social media ads.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Algo Services -->
+  <section class="px-6 py-10 lg:px-20 custom-cursor bg-gradient-to-br from-purple-100 to-blue-100">
+    <h2 class="text-3xl font-semibold mb-8 border-b-4 border-purple-400 inline-block">🔷 Algo Services</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+      
+      <!-- API Bridge -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png" alt="API Bridge" class="w-16 mb-4">
+        <h3 class="text-xl font-bold mb-2">API Bridge</h3>
+        <p class="text-gray-600">Real-time integration with broker APIs for fast and accurate trading execution.</p>
+      </div>
+
+      <!-- Signals -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/950/950281.png" alt="Signals" class="w-16 mb-4">
+        <h3 class="text-xl font-bold mb-2">Signals</h3>
+        <p class="text-gray-600">Get high-quality trading signals powered by data science and technical analysis.</p>
+      </div>
+
+      <!-- Strategy Development -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1644/1644670.png" alt="Strategy" class="w-16 mb-4">
+        <h3 class="text-xl font-bold mb-2">Strategy Development</h3>
+        <p class="text-gray-600">Custom algorithmic trading strategies designed to suit your risk profile and market goals.</p>
+      </div>
+
+      <!-- Algo Software -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Algo Software" class="w-16 mb-4">
+        <h3 class="text-xl font-bold mb-2">Algo Software</h3>
+        <p class="text-gray-600">End-to-end software for executing, monitoring, and optimizing algo trades in real-time.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center py-6 bg-gray-800 text-white mt-10">
+    <p>&copy; 2025 Jet IT Solution. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

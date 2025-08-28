@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pricing Plans - Jet IT Solution</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="cropped_circle_image.png">
+  <style>
+    .price-card { transition: all 0.3s ease; }
+    .price-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 12px 25px rgba(0,0,0,0.25); }
+    body { overflow: hidden; }
+    .circle { position: absolute; border-radius: 50%; opacity: 0.3; animation: float 20s infinite ease-in-out alternate; filter: blur(60px); }
+    @keyframes float {
+      0%   { transform: translateY(0) translateX(0) scale(1); }
+      50%  { transform: translateY(-100px) translateX(80px) scale(1.2); }
+      100% { transform: translateY(50px) translateX(-80px) scale(0.9); }
+    }
+    #scrollbar4::-webkit-scrollbar { width: 12px; }
+    #scrollbar4::-webkit-scrollbar-track { background-color: transparent; border: 1.5px solid #7e7e7e; border-radius: 8px; }
+    #scrollbar4::-webkit-scrollbar-thumb { background-color: #f1f1f1; border: 2px solid #616161; border-radius: 8px; }
+  </style>
+</head>
+<body class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white font-sans">
+
+  <div id="scrollbar4" class="h-screen overflow-y-scroll">
+
+    <!-- Animated Circles -->
+    <div class="circle w-96 h-96 bg-blue-500 top-10 left-10"></div>
+    <div class="circle w-72 h-72 bg-purple-500 bottom-20 right-20"></div>
+    <div class="circle w-80 h-80 bg-pink-500 top-1/2 left-1/2"></div>
+
+    <!-- Header -->
+    <header class="flex items-center justify-between px-6 lg:px-20 py-4 bg-white backdrop-blur-md shadow sticky top-0 z-50">
+      <div class="flex items-center gap-3">
+        <img src="cropped_circle_image.png" alt="Logo" class="w-14 h-14 rounded-full shadow-md">
+        <span class="text-2xl md:text-3xl font-extrabold text-blue-400">Jet IT Solution</span>
+      </div>
+      <a href="index.html" class="text-blue-400 hover:text-blue-200 font-medium border border-blue-500 px-4 py-2 rounded-full hover:bg-blue-900 transition">
+        ← Back
+      </a>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative text-center py-24 bg-gradient-to-r from-blue-700/80 to-purple-700/80 backdrop-blur-sm">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">Pricing Plans</h1>
+      <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
+        Choose the plan that fits your trading needs and maximize your market exposure.
+      </p>
+    </section>
+
+    <!-- Basic Plans -->
+    <section class="relative px-6 py-20 lg:px-20">
+      <h2 class="text-4xl font-bold mb-14 text-center text-blue-400">Basic Plans</h2>
+      <div class="grid md:grid-cols-3 gap-12 relative z-10">
+        
+        <!-- Basic Monthly -->
+        <div class="price-card bg-gray-900/80 p-10 rounded-3xl text-center border border-gray-700">
+          <div class="text-3xl font-bold bg-blue-500 text-white w-40 h-40 flex flex-col items-center justify-center mx-auto rounded-full mb-8">
+            ₹9999 <span class="text-sm">+ GST / Month</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">Basic Plan</h3>
+          <ul class="text-gray-300 space-y-3">
+            <li>✔ 1 pre-built strategy</li>
+            <li>✔ Basic market analysis</li>
+            <li>✔ 1-2 trading signals</li>
+            <li>✔ Nifty option</li>
+          </ul>
+          <button onclick="openCheckout('Basic Plan - Monthly', 9999)" class="mt-8 px-8 py-3 rounded-full bg-blue-500 hover:bg-blue-600 text-white font-semibold text-lg">Order Now</button>
+        </div>
+
+        <!-- Basic Quarterly -->
+        <div class="price-card bg-gray-900/80 p-10 rounded-3xl text-center border border-gray-700">
+          <div class="text-3xl font-bold bg-purple-500 text-white w-40 h-40 flex flex-col items-center justify-center mx-auto rounded-full mb-8">
+            ₹29000 <span class="text-sm">+ GST / Quarter</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">Basic Plan</h3>
+          <ul class="text-gray-300 space-y-3">
+            <li>✔ 1 pre-built strategy</li>
+            <li>✔ Basic market analysis</li>
+            <li>✔ 1-2 trading signals</li>
+            <li>✔ Nifty option</li>
+          </ul>
+          <button onclick="openCheckout('Basic Plan - Quarterly', 29000)" class="mt-8 px-8 py-3 rounded-full bg-purple-500 hover:bg-purple-600 text-white font-semibold text-lg">Order Now</button>
+        </div>
+
+        <!-- Basic Half-Yearly -->
+        <div class="price-card bg-gray-900/80 p-10 rounded-3xl text-center border border-gray-700">
+          <div class="text-3xl font-bold bg-pink-500 text-white w-40 h-40 flex flex-col items-center justify-center mx-auto rounded-full mb-8">
+            ₹49000 <span class="text-sm">+ GST / Half Year</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">Basic Plan</h3>
+          <ul class="text-gray-300 space-y-3">
+            <li>✔ 2 strategies</li>
+            <li>✔ Basic market analysis</li>
+            <li>✔ 1-3 trading signals</li>
+            <li>✔ Nifty or Bank Nifty option</li>
+          </ul>
+          <button onclick="openCheckout('Basic Plan - Half Yearly', 49000)" class="mt-8 px-8 py-3 rounded-full bg-pink-500 hover:bg-pink-600 text-white font-semibold text-lg">Order Now</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Premium Plans -->
+    <section class="relative px-6 py-20 lg:px-20 bg-gradient-to-br from-purple-800/80 to-blue-800/80 backdrop-blur-sm">
+      <h2 class="text-4xl font-bold mb-14 text-center text-purple-300">Index Option Premium</h2>
+      <div class="grid md:grid-cols-3 gap-12 relative z-10">
+
+        <!-- Premium Monthly -->
+        <div class="price-card bg-gray-900/80 p-10 rounded-3xl text-center border border-gray-700">
+          <div class="text-3xl font-bold bg-indigo-500 text-white w-40 h-40 flex flex-col items-center justify-center mx-auto rounded-full mb-8">
+            ₹11000 <span class="text-sm">+ GST / Month</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">Index Option Premium</h3>
+          <ul class="text-gray-300 space-y-3">
+            <li>✔ 2 strategies</li>
+            <li>✔ 2 accounts</li>
+            <li>✔ Limited signals</li>
+            <li>✔ Nifty, Bank Nifty, Finnifty, Sensex options</li>
+            <li>✔ Fully automatic</li>
+            <li>✔ Call & test support</li>
+          </ul>
+          <button onclick="openCheckout('Premium Plan - Monthly', 11000)" class="mt-8 px-8 py-3 rounded-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold text-lg">Order Now</button>
+        </div>
+
+        <!-- Premium Quarterly -->
+        <div class="price-card bg-gray-900/80 p-10 rounded-3xl text-center border border-gray-700">
+          <div class="text-3xl font-bold bg-teal-500 text-white w-40 h-40 flex flex-col items-center justify-center mx-auto rounded-full mb-8">
+            ₹31000 <span class="text-sm">+ GST / Quarter</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">Index Option Premium</h3>
+          <ul class="text-gray-300 space-y-3">
+            <li>✔ 2 strategies</li>
+            <li>✔ 3 accounts</li>
+            <li>✔ Nifty, Bank Nifty, Finnifty, Sensex options</li>
+            <li>✔ Fully automatic</li>
+            <li>✔ Call & test support</li>
+          </ul>
+          <button onclick="openCheckout('Premium Plan - Quarterly', 31000)" class="mt-8 px-8 py-3 rounded-full bg-teal-500 hover:bg-teal-600 text-white font-semibold text-lg">Order Now</button>
+        </div>
+
+        <!-- Premium Half-Yearly -->
+        <div class="price-card bg-gray-900/80 p-10 rounded-3xl text-center border border-gray-700">
+          <div class="text-3xl font-bold bg-orange-500 text-white w-40 h-40 flex flex-col items-center justify-center mx-auto rounded-full mb-8">
+            ₹51000 <span class="text-sm">+ GST / Half Year</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">Index Option Premium</h3>
+          <ul class="text-gray-300 space-y-3">
+            <li>✔ 2 strategies</li>
+            <li>✔ 3 accounts</li>
+            <li>✔ Nifty, Bank Nifty, Finnifty, Sensex options</li>
+            <li>✔ Fully automatic</li>
+            <li>✔ Call & test support</li>
+          </ul>
+          <button onclick="openCheckout('Premium Plan - Half Yearly', 51000)" class="mt-8 px-8 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-lg">Order Now</button>
+        </div>
+
+      </div>
+      <p class="text-center text-red-400 text-sm mt-12">⚠️ Alert: No refund policy. Please check our policy before making a payment.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black/70 text-gray-400">
+      <p>&copy; 2025 Jet IT Solution. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Razorpay -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    function openCheckout(planName, amount) {
+      var options = {
+        "key": "rzp_test_R9frjhmtKrMumv", // Replace with your Razorpay Key
+        "amount": amount * 100, // Amount in paise
+        "currency": "INR",
+        "name": "Jet IT Solution",
+        "description": planName,
+        "image": "cropped_circle_image.png",
+        "handler": function (response) {
+          alert("✅ Payment Successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+          "name": "Your Name",
+          "email": "youremail@example.com",
+          "contact": "9999999999"
+        },
+        "theme": { "color": "#3399cc" }
+      };
+      var rzp1 = new Razorpay(options);
+      rzp1.open();
+    }
+  </script>
+</body>
+</html>

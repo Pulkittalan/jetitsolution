@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" type="image/png" href="cropped_circle_image.png">
+<title>Jet IT Solutions - KYC Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: url('/kyc.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Overlay to soften background */
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(245,245,245,0.6);
+    z-index: 0;
+  }
+
+  .fade-slide {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 0.6s forwards;
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes fadeSlideIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Input with animated gradient border */
+  .input-field {
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 2px solid transparent;
+    background-color: rgba(255,255,255,0.9);
+    background-clip: padding-box;
+    font-size: 16px;
+    transition: all 0.4s ease;
+  }
+
+  .input-field:focus {
+    outline: none;
+    background-color: rgba(255,255,255,1);
+    border-image: linear-gradient(90deg, #7a0bc0, #fa58b6) 1;
+    box-shadow: 0 0 12px rgba(122,11,192,0.4);
+    transform: scale(1.03);
+  }
+
+  /* Submit button */
+  .submit-btn {
+    background: linear-gradient(90deg, #7a0bc0, #fa58b6);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 16px 24px;
+    transition: all 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background: linear-gradient(90deg, #5a068a, #d4379f);
+    transform: scale(1.05);
+  }
+
+  /* Video animation */
+  .video-container {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    animation: float 4s ease-in-out infinite;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Gradient highlight behind form */
+  .form-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(122,11,192,0.1), rgba(250,88,182,0.1));
+    border-radius: 30px;
+    z-index: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-white rounded-3xl shadow-2xl flex flex-col md:flex-row overflow-hidden w-full max-w-6xl fade-slide form-container relative p-6">
+
+  <!-- Left Side - Video -->
+  <div class="flex-1 flex items-center justify-center relative">
+    <div class="video-container">
+      <video src="kyc_video.mp4" autoplay loop muted playsinline style="width:100%; border-radius:20px;"></video>
+    </div>
+  </div>
+
+  <!-- Right Side - Form -->
+  <div class="flex-1 p-8 md:p-12 overflow-y-auto max-h-[85vh] relative z-10" id="kycFormContainer">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">KYC Verification</h1>
+
+    <form class="space-y-6" id="kycForm">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input type="text" placeholder="First Name" class="input-field" required>
+        <input type="text" placeholder="Last Name" class="input-field" required>
+      </div>
+
+      <input type="email" placeholder="Email Address" class="input-field w-full" required>
+      <input type="tel" placeholder="Phone Number" class="input-field w-full" required>
+
+      <textarea placeholder="Address" class="input-field w-full" rows="3" required></textarea>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input type="text" placeholder="City" class="input-field" required>
+        <input type="text" placeholder="State" class="input-field" required>
+      </div>
+      <input type="text" placeholder="Pincode" class="input-field w-full" required>
+
+      <select class="input-field w-full" required>
+        <option value="">Select Identity Document</option>
+        <option>Aadhaar Card</option>
+        <option>Passport</option>
+        <option>Voter ID</option>
+        <option>Driving License</option>
+      </select>
+      <input type="file" accept=".jpg,.png,.pdf" class="input-field w-full" required>
+
+      <div class="flex items-center gap-2 text-gray-700">
+        <input type="checkbox" required class="w-5 h-5 rounded">
+        <span>I confirm that the information provided is true and accurate.</span>
+      </div>
+
+      <div class="flex justify-center">
+        <button type="submit" class="submit-btn w-full">Submit KYC</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Auto-scroll to next input field
+  const form = document.getElementById('kycForm');
+  const container = document.getElementById('kycFormContainer');
+  const inputs = form.querySelectorAll('input, select, textarea');
+
+  inputs.forEach((input, index) => {
+    input.addEventListener('input', () => {
+      if (input.checkValidity() && index < inputs.length - 1) {
+        const nextInput = inputs[index + 1];
+        nextInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

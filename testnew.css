@@ -1,0 +1,57 @@
+.btn-3d {
+      display: inline-block;
+      padding: 5px 10px;
+      color: #fff;
+      font-family: 'Rubik One', sans-serif;
+      text-decoration: none;
+      font-size: 2vw;
+      background-color: #3498db;
+      position: relative;
+      transition: all .3s ease;
+      right: 10px;
+    }
+
+    .btn-3d::before,
+    .btn-3d::after {
+      content: "";
+      position: absolute;
+      transition: all .3s ease;
+    }
+
+    /* Bottom shadow */
+    .btn-3d::before {
+      bottom: -15px;
+      left: 8px;
+      height: 15px;
+      width: 100%;
+      transform: skewX(45deg);
+      background-color: #217dbb; /* darkened */
+    }
+
+    /* Right shadow */
+    .btn-3d::after {
+      right: -15px;
+      bottom: -8px;
+      width: 15px;
+      height: 100%;
+      transform: skewY(45deg);
+      background-color: #19608f; /* darker */
+    }
+
+    /* Pressed effect */
+    .btn-3d:active {
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-3d:active::before {
+      bottom: -5px;
+      height: 5px;
+      left: 3px;
+    }
+
+    .btn-3d:active::after {
+      right: -5px;
+      width: 5px;
+      bottom: -3px;
+    }
